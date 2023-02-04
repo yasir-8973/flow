@@ -9,7 +9,7 @@ import ReactFlow, {
   Background,
 } from "reactflow";
 import "reactflow/dist/style.css";
-// import TextField from "./textfield";
+import TextField from "./textfield";
 
 const initialNodes = [
   {
@@ -29,12 +29,12 @@ const DnDFlow = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [reactFlowInstance, setReactFlowInstance] = useState<any>(null);
 
-  // const nodeTypes = useMemo(
-  //   () => ({
-  //     textUpdater: TextField,
-  //   }),
-  //   []
-  // );
+  const nodeTypes = useMemo(
+    () => ({
+      textUpdater: TextField,
+    }),
+    []
+  );
 
   const onConnect = useCallback(
     (params: any) => setEdges((eds) => addEdge(params, eds)),
@@ -88,11 +88,11 @@ const DnDFlow = () => {
             onInit={setReactFlowInstance}
             onDrop={onDrop}
             onDragOver={onDragOver}
-            // nodeTypes={nodeTypes}
-            fitView
+            nodeTypes={nodeTypes}
+            // fitView
           >
             <Controls />
-            <Background color="#99b3ec" />
+            <Background color="#ddd" />
           </ReactFlow>
         </ReactFlowProvider>
       </div>
