@@ -22,7 +22,7 @@ import Section from "./section";
 import Sidebar from "./sidebar";
 
 function App() {
-  const [mode, setMode] = useState<PaletteMode>("light");
+  const [mode, setMode] = useState<PaletteMode>("dark");
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {

@@ -18,7 +18,7 @@ export default function FixedBottomNavigation() {
 
   return (
       <Paper variant="outlined" square sx={{ height: '100%' }}>
-        Footer
+        Footer comes here
       </Paper>
   );
 }
