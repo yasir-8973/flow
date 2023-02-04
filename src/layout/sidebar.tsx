@@ -1,5 +1,5 @@
 import React from "react";
-import { theme } from "@/theme/customTheme";
+import { theme } from "../theme/customTheme";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import { Paper, Typography } from "@mui/material";
 import { useTheme } from "@mui/material";

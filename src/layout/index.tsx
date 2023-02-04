@@ -6,22 +6,20 @@ import {
   Paper,
   ThemeProvider,
 } from "@mui/material";
-import React, {
-  createContext,
-  useReducer,
+import {
   useCallback,
   useMemo,
-  useState,
-  useEffect,
+  useReducer,
+  useState
 } from "react";
-import { darkTheme } from "@/theme/dark";
-import { lightTheme } from "@/theme/light";
-import Header from "./header";
-import Sidebar from "./sidebar";
-import Section from "./section";
+import { darkTheme } from "../theme/dark";
+import { lightTheme } from "../theme/light";
 import Footer from "./footer";
+import Header from "./header";
+import { Actions, Context, Dispatcher, Reducer } from "./reducer";
 import RightSidebar from "./rightSection";
-import { Reducer, Context, Actions, Dispatcher } from "./reducer";
+import Section from "./section";
+import Sidebar from "./sidebar";
 
 function App() {
   const [mode, setMode] = useState<PaletteMode>("light");
