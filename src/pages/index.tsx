@@ -1,11 +1,8 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Link from 'next/link';
-import FlowChart from './flowchart'
+import Layout from './layout'
 
 export default function BasicButtons() {
   return (
-    <FlowChart/>
+    <Layout/>
   );
 }

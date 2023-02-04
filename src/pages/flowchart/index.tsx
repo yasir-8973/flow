@@ -8,7 +8,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import TextField from './textfield';
-import Sidebar from './sidebar';
+import Sidebar from '../layout/sidebar';
 import CustomEdge from './customEdge';
 
 
@@ -84,7 +84,6 @@ const DnDFlow = () => {
   return (
     <div className="dndflow">
       <ReactFlowProvider>
-        <Sidebar />
         <div className="reactflow-wrapper" ref={reactFlowWrapper}>
           <ReactFlow
             nodes={nodes}
@@ -96,7 +95,7 @@ const DnDFlow = () => {
             onDrop={onDrop}
             onDragOver={onDragOver}
             nodeTypes={nodeTypes}
-            fitView
+            // fitView
             edgeTypes={edgeTypes}
           >
             <Controls />
