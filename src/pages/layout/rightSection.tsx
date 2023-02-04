@@ -1,6 +1,4 @@
 import React from "react";
-import TextField from "../flowchart/textfield";
-import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
 
 const RightSidebar = () => {

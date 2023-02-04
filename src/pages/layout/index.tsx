@@ -6,36 +6,29 @@ import {
   Paper,
   ThemeProvider,
 } from "@mui/material";
-import React from "react";
+import React, {
+  createContext,
+  useReducer,
+  useCallback,
+  useMemo,
+  useState,
+  useEffect,
+} from "react";
 import { darkTheme } from "@/theme/dark";
 import { lightTheme } from "@/theme/light";
-
 import Header from "./header";
 import Sidebar from "./sidebar";
 import Section from "./section";
 import Footer from "./footer";
 import RightSidebar from "./rightSection";
-
-// Context
-interface ColorContextSchema {
-  toggleColorMode: () => void;
-}
-
-export const ColorContext = React.createContext<ColorContextSchema>(
-  {} as ColorContextSchema
-);
-
-// -------------------------------------
-
-// -------------------------------------
+import { Reducer, Context, Actions, Dispatcher } from "./reducer";
 
 function App() {
-  const [mode, setMode] = React.useState<PaletteMode>("light");
-  // const [state, dispatch] = React.useReducer(reducer, initialState);
-  const colorMode = React.useMemo(
+  const [mode, setMode] = useState<PaletteMode>("light");
+  const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode: PaletteMode) =>
+        setMode((prevMode: PaletteMode) =>  
           prevMode === "light" ? "dark" : "light"
         );
       },
@@ -43,18 +36,27 @@ function App() {
     []
   );
 
-  const theme = React.useMemo(
+  const [state, _dispatch] = useReducer(Reducer, {
+    mode: "light",
+    colorMode: colorMode
+  });  
+
+  const dispatch: Dispatcher = useCallback((type, ...payload) => {
+    _dispatch({ type, payload: payload[0] } as Actions);
+  }, []);
+
+  const theme = useMemo(
     () => createTheme(mode === "light" ? lightTheme : darkTheme),
     [mode]
   );
 
   return (
-    <ColorContext.Provider value={colorMode}>
+    <Context.Provider value={[state, dispatch]}>
       <ThemeProvider theme={theme}>
         <CssBaseline enableColorScheme />
         <Layout />
       </ThemeProvider>
-    </ColorContext.Provider>
+    </Context.Provider>
   );
 }
 

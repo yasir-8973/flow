@@ -43,9 +43,11 @@ export const theme = {
       tonalOffset: 0.2,
     },
     light: {
-      card:"#ced6e0"
+      card:"#ffffff",
+      color: '#1A2027',
     },
     dark: {
-      card: 'rgb(0, 30, 60)'
+      card: 'rgb(0, 30, 60)',
+      color: '#ffffff',
     }
 };

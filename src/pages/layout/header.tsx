@@ -10,11 +10,11 @@ import {
 } from "@mui/material";
 import DarkIcon from "@mui/icons-material/Brightness4";
 import LightIcon from "@mui/icons-material/Brightness7";
-import { ColorContext } from "@/theme/colorContext";
+import { Context } from './reducer';
 
 export default function Header(props: any) {
   const theme = useTheme();
-  const colorMode = React.useContext(ColorContext);
+  const [{ colorMode }, dispatch] = React.useContext(Context);
 
   return (
     <AppBar
@@ -30,7 +30,9 @@ export default function Header(props: any) {
       <Toolbar variant="dense" sx={{ flexGrow: 1 }}>
         <Typography component="p">Header</Typography>
         <Paper sx={{ flexGrow: 1 }} />
-        <IconButton onClick={colorMode.toggleColorMode} color="inherit">
+        <IconButton onClick={() => {
+          dispatch('colorMode',colorMode);
+          }} color="inherit">
           {theme.palette.mode === "dark" ? <LightIcon /> : <DarkIcon />}
         </IconButton>
       </Toolbar>

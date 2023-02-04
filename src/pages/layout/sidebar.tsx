@@ -1,17 +1,15 @@
 import React from "react";
-import { ColorContext } from "@/theme/colorContext";
+import { theme } from "@/theme/customTheme";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import { Paper, Typography } from "@mui/material";
-import { theme } from '@/theme/customTheme';
+import { useTheme } from "@mui/material";
 
 const Sidebar = () => {
-  const colorMode = React.useContext(ColorContext);
-
+  const themeMode = useTheme();
   const onDragStart = (event: any, nodeType: any) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
     event.dataTransfer.effectAllowed = "move";
   };
-  console.log(colorMode.toggleColorMode,'colorMode')
 
   return (
     <Paper variant="outlined" square sx={{ height: "100%", padding: 2 }}>
@@ -21,8 +19,14 @@ const Sidebar = () => {
           display: "flex",
           padding: 1,
           flexDirection: "column",
-          // background: theme.palette.card.color2,
+          background: theme[themeMode?.palette?.mode]?.card,
+          color: theme[themeMode?.palette?.mode]?.color,
           alignItems: "center",
+          ':hover': {
+            // bgcolor: 'pink', 
+            // color: 'white',
+            transform: 'translate3d(5px,0,0)'
+          },
         }}
         onDragStart={(event) => onDragStart(event, "textUpdater")}
       >
