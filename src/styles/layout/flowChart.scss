@@ -57,27 +57,52 @@
   }
   
 
-  /* Textarea */
-
-.ui-autocomplete-input {
-  width: 100%;
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
-  border: 1px solid;
-  border-image: none;
-  border-radius: 2px;  
-  color: #555555;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 7px;
-  line-height: 1.4em;
-  padding: 5px 8px;
-  transition: background-color 0.2s ease 0s;
-}
-
-
-.ui-autocomplete-input:focus {
-    background: none repeat scroll 0 0 #FFFFFF;
-    outline-width: 0;
-}
+  
 .react-flow__panel.react-flow__attribution{
   display: none !important;
+}
+  /* Textarea */
+.editable-textarea {
+  scrollbar-width: thin;
+  outline: none;
+  width: 100%;
+  min-height: 50px;
+  max-height: 200px;
+  border-radius: 5px;
+  padding: 15px 0 0 15px; 
+  border: 0px;
+  resize: none;  
+  background: transparent;
+  box-sizing: border-box;
+}
+.link-editor{
+  outline: none;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 5px;
+  border: 0px;
+  resize: none;  
+  background: transparent;
+  box-sizing: border-box;
+}
+// .text-updater-node{
+
+//   font-size: 10px;
+//   width: 180px;
+//   background: #f5f5f6;
+//   color: #222;
+//   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 15%), 0 2px 4px -1px rgb(0 0 0 / 8%);
+//   border-radius: 2px;
+//   // &:hover,
+//   // &:focus {
+//   //   border: 1px solid black;
+//   // }
+// }
+.react-flow__handle.connectable{
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: #778899;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }

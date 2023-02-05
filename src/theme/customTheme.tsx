@@ -45,9 +45,15 @@ export const theme = {
     light: {
       card:"#ffffff",
       color: '#1A2027',
+      black: '#1A2027',
     },
     dark: {
       card: 'rgb(0, 30, 60)',
       color: '#ffffff',
+      black: '#1A2027',
+    },
+    common: {
+      white: '#ffffff',
+      black: '#1A2027',
     }
 };

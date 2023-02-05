@@ -1,15 +1,16 @@
 import React, { useState, useRef, useCallback, useMemo } from "react";
+import '../styles/layout/flowChart.scss'
 import ReactFlow, {
   ReactFlowProvider,
   addEdge,
   useNodesState,
   useEdgesState,
-  MarkerType,
   Controls,
   Background,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import TextField from "./textfield";
+import TextField from "./components/textAreaComponent";
+import LinkComponent from "./components/linkComponent";
 
 const initialNodes = [
   {
@@ -31,7 +32,8 @@ const DnDFlow = () => {
 
   const nodeTypes = useMemo(
     () => ({
-      textUpdater: TextField,
+      textEditor: TextField,
+      linkEditor: LinkComponent
     }),
     []
   );

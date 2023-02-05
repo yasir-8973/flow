@@ -22,7 +22,7 @@ import Section from "./section";
 import Sidebar from "./sidebar";
 
 function App() {
-  const [mode, setMode] = useState<PaletteMode>("dark");
+  const [mode, setMode] = useState<PaletteMode>("light");
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => {
@@ -67,7 +67,7 @@ function Layout() {
           <Grid item xs={1}>
             <Sidebar />
           </Grid>
-          <Grid item xs={9} sx={{ height: "100%" }}>
+          <Grid item xs={11} sx={{ height: "100%" }}>
             <Paper sx={{ height: "94%" }}>
               <Section />
             </Paper>
@@ -75,9 +75,9 @@ function Layout() {
               <Footer />
             </Paper>
           </Grid>
-          <Grid item xs={2}>
+          {/* <Grid item xs={2}>
             <RightSidebar />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Paper>
     </>
